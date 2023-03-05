@@ -29,7 +29,7 @@ int flags = 0;
 
 #define wSize 16
 #define hSize 16
-#define mines 2
+#define mines 35
 
 int remaining = hSize * wSize - mines;
 
@@ -296,6 +296,36 @@ void gridDisplayInit() {
 					abort;
 
 				}
+				///Condition de victoire 
+
+				if (remaining < 0) {
+					winStatus = 1;
+					system("cls");
+					printf(CYAN " /] 0] 1] 2] 3] 4] 5] 6] 7] 8] 9]10]11]12]13]14]15]\n" COLOR_RESET);
+
+					for (i = 0; i < wSize; i++) {
+						printf(CYAN "%s" COLOR_RESET, l[i]);
+						for (j = 0; j < hSize; j++) {
+
+							grid[i][j].display = colors[grid[i][j].nearby];
+
+							if (grid[i][j].bomb == 1) {
+								grid[i][j].display = ROUGE "[*]" COLOR_RESET;
+							}
+
+							if (grid[i][j].bomb == 0 && grid[i][j].isFlagged == 1) {
+								grid[i][j].display = JAUNE "[X]" COLOR_RESET;
+							}
+							printf("%s", grid[i][j].display);
+						}
+						printf("\n");
+					}
+					printf(JAUNE "Bravo, tu as gagne!" COLOR_RESET);
+					winStatus = 1;
+					abort;
+
+				}
+
 
 
 
@@ -319,7 +349,6 @@ void gridDisplayInit() {
 			///On empeche de selectionner des cases avec un drappeau
 
 			if ((choixRF == 'r') || (choixRF == 'R') && grid[inputI][inputJ].isFlagged == 1) {
-				printf("La case a ete drappeaute, tu ne peux point decouvrir cette case sans enlever le drappeau\n");
 
 				break;
 			}
@@ -349,24 +378,6 @@ void gridDisplayInit() {
 			printf("Valeur incorrecte");
 			fflush(stdin);
 
-			///Condition de victoire 
-
-			if (remaining < 0) {
-				winStatus = 1;
-				printf(CYAN " /] 0] 1] 2] 3] 4] 5] 6] 7] 8] 9]10]11]12]13]14]15]\n" COLOR_RESET);
-
-				for (i = 0; i < wSize; i++) {
-					printf(CYAN "%s" COLOR_RESET, l[i]);
-					for (j = 0; j < hSize; j++) {
-						printf("%s", grid[i][j].display);
-					}
-					printf("\n");
-				}
-				printf("Bravo, tu as gagne!");
-				winStatus = 1;
-				break;
-
-			}
 
 
 		}

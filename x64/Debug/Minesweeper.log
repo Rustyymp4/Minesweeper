@@ -1,0 +1,8 @@
+﻿  Minesweeper.cpp
+C:\Users\yxofl\Downloads\Minesweeper-master\Minesweeper.cpp(250,11): warning C4804: '>=' : utilisation risquée du type 'bool' dans l'opération
+C:\Users\yxofl\Downloads\Minesweeper-master\Minesweeper.cpp(250,31): warning C4804: '<=' : utilisation risquée du type 'bool' dans l'opération
+C:\Users\yxofl\Downloads\Minesweeper-master\Minesweeper.cpp(296,6): warning C4551: liste d'arguments manquante dans l'appel de fonction
+C:\Users\yxofl\Downloads\Minesweeper-master\Minesweeper.cpp(325,6): warning C4551: liste d'arguments manquante dans l'appel de fonction
+C:\Users\yxofl\Downloads\Minesweeper-master\Minesweeper.cpp(403,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\yxofl\Downloads\Minesweeper-master\Minesweeper.cpp(410,13): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Minesweeper.vcxproj -> C:\Users\yxofl\Downloads\Minesweeper-master\x64\Debug\Minesweeper.exe
